@@ -1,5 +1,7 @@
 <?php namespace Rvwoens\Gompie;
 
+use Collective\Html\HtmlFacade;
+use Collective\Html\HtmlServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -35,6 +37,11 @@ class GompieServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function register() {
+		// Bind HTML package
+		$this->app->register(HtmlServiceProvider::class);
+		$loader = \Illuminate\Foundation\AliasLoader::getInstance();
+		$loader->alias('HTML', HtmlFacade::class);
+
 		$this->app->bind('gompie', function($app) {
 			return new Gompie();
 		});

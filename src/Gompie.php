@@ -4,9 +4,9 @@
 class Gompie {
 	// Gompie::load($file) -> load and return FormerObject
 	public function load($f) {
-		//		$former=new FormerObject();
-		//		$former->loadFile($f);
-		//		return $former;
+			$gompie=new GompieObject();
+			$gompie->loadFile($f);
+			return $gompie;
 	}
 	// complete form processor with load, doall and generate view.
 	// the complete package..

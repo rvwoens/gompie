@@ -2,7 +2,7 @@
     "name": "rvwoens/gompie",
     "description": "A yaml based form generator",
     "type": "library",
-    "license": "MIT",
+    "license": "LGPL-3.0-or-later.",
     "authors": [
         {
             "name": "Ronald van Woensel",
@@ -11,7 +11,8 @@
     ],
     "require": {
         "php": ">=5.5.0",
-        "symfony/yaml": "^4.3"
+        "symfony/yaml": "^4.3",
+        "laravelcollective/html": "^5.8"
     },
     "autoload": {
         "psr-4": {

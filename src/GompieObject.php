@@ -1,9 +1,10 @@
 <?php namespace Rvwoens\Gompie;
 
 use Cache;
+use Illuminate\Support\Facades\Input;
 use Request;
+use Symfony\Component\Yaml\Yaml;
 use View;
-use Input;
 use Log;
 use URL;
 use File;
@@ -85,8 +86,8 @@ class GompieObject {
 		else
 			$fullf = app_path('Forms/').$f.'.yaml';
 		if (!File::exists($fullf))
-			throw new \exception("former: cant load $fullf");
-		$this->form = Yaml::YAMLLoad($fullf);
+			throw new Exception("gompie: cant load $fullf");
+		$this->form = Yaml::parseFile($fullf);
 		$this->setDefaults();
 
 		vars::setID($f);    // store vars under our form name
@@ -186,8 +187,8 @@ class GompieObject {
 
 		if (Request::method() == 'POST') {
 			// we show NOTHING.. just create a row for posting
-			$row = \Rvwoens\Former\rows\row::make($this->form, 'post');    // a basic postrow is enough
-			$response = $row->post(\Rvwoens\Former\FormerObject::decodeId()); // Input::get('id'));
+			$row = \Rvwoens\Gompie\rows\row::make($this->form, 'post');    // a basic postrow is enough
+			$response = $row->post(static::decodeId()); // Input::get('id'));
 			if (is_object($response)) {
 				$this->response = $response;
 
@@ -202,7 +203,7 @@ class GompieObject {
 		if ($cm == 'D') {
 			// delete row
 			$row = row::make($this->form, 'del');    // a basic delrow is enough
-			$response = $row->del(FormerObject::decodeId()); // Input::get('id');
+			$response = $row->del(static::decodeId()); // Input::get('id');
 			if (is_object($response)) {
 				$this->response = $response;
 
