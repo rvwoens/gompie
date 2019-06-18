@@ -1,0 +1,20 @@
+{
+    "name": "rvwoens/gompie",
+    "description": "A yaml based form generator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ronald van Woensel",
+            "email": "rvw@cosninix.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rvwoens\\Gompie\\": "src/"
+        }
+    }
+}
