@@ -5,7 +5,7 @@ use Laravel,Bootstrapper,Rvwoens\Former\Cos, Rvwoens\Former\Vars,\exception, \In
 
 // base field class
 class gmapfield extends editablefield {
-	// api key AIzaSyArZMJh7ysMEEwH2XpUXtLz7BF8MdV2d_k
+	
 	public function getbaseinput($row) {
 		$rv='';$style='';
 		$height=COS::ifset($this->def['height'],400);
@@ -40,7 +40,6 @@ class gmapfield extends editablefield {
 			}
 		}
 
-		//\gassets::extraExternalScript('former','https://maps.googleapis.com/maps/api/js?key=AIzaSyArZMJh7ysMEEwH2XpUXtLz7BF8MdV2d_k&libraries=places');
 		$rv='<script type="text/javascript" src="/build/js/gmapfield.js"></script>';
 		$rv.="<div class='col-md-$gridsize' style='${style}'>";
 			if ($searchbar) {
