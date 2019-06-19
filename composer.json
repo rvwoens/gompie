@@ -2,7 +2,7 @@
     "name": "rvwoens/gompie",
     "description": "A yaml based form generator",
     "type": "library",
-    "license": "LGPL-3.0-or-later.",
+    "license": "LGPL-3.0-or-later",
     "authors": [
         {
             "name": "Ronald van Woensel",
